@@ -6,7 +6,7 @@
 		<script src = "http://code.jquery.com/jquery-1.7.1.min.js"></script>
 		<script src = "dist/sweetalert.min.js"></script>
 		<link rel = "stylesheet" type = "text/css" href = "onestyle.css">
-		<link rel = "stylesheet" type = "text/css" href = "dist/sweetalert.css">
+		<link rel = "stylesheet" type = "text/css" href = "dist/sweetalert2.css">
 		<title>欸!吃什麼啦!</title>
 		<script>
 		$(document).ready(function(){
@@ -18,26 +18,25 @@
 			});
 		});
 		function showres(input){
-				if(input == 1 )
-					{
+			var buildingname = ["夢泉商場(第一餐廳)" ,"湧泉商場(第二餐廳)"];	
 					swal({
-						title: "you clicked me!"
+						title: "<h2>"+buildingname[input-1]+"</h2>",						
+						allowOutsideClick: true,
+						confirmButtonText: "離開",
+						text:"<p style='overflow:auto'><iframe align='center' src='"+buildingname[input-1]+".html'width='960px' height='600px'frameborder='0' ></iframe></p>",
+						html:true
 						})
-					}
-				else if(input == 2)
-					{
-					swal({
-						title: "you clicked you!!"
-						})
-					}
-				}
+					
+		}
 				
 		
 		</script>
 	</head>
 		<body>
-			<h1>欸!吃什麼啦!</h1>
+			<h1  align="center">欸!吃什麼啦!</h1>
+			<div align="center">
 			<input type="button" class="res" id="r1" style = "background-image:url(imgs/r1.png);background-size:contain;">
 			<input type="button" class="res" id="r2" style = "background-image:url(imgs/r1.png);background-size:contain;">	
+			</div>
 		</body>
 </html>
