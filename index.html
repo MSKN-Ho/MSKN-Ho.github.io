@@ -3,24 +3,41 @@
 <html lang="zh-tw">
 	<head>
 		<meta charset = "utf-8">
-		<title>欸!吃什麼啦!</title>
-		<link rel = "stylesheet" type == "text/css" href = "exe4.css">
-		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-	    <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+		<script src = "http://code.jquery.com/jquery-1.7.1.min.js"></script>
 		<script src = "dist/sweetalert.min.js"></script>
-		<style type="text/css">
-		body {
-			font-family:"微軟正黑體";
-			font-color:#000079;
-			background-color:#ECFFFF;
-		}
-		</style>
+		<link rel = "stylesheet" type = "text/css" href = "onestyle.css">
+		<link rel = "stylesheet" type = "text/css" href = "dist/sweetalert.css">
+		<title>欸!吃什麼啦!</title>
+		<script>
+		$(document).ready(function(){
+			$('#r1').click(function(){
+			showres(1);
+			});
+			$('#r2').click(function(){
+			showres(2);
+			});
+		});
+		function showres(input){
+				if(input == 1 )
+					{
+					swal({
+						title: "you clicked me!"
+						})
+					}
+				else if(input == 2)
+					{
+					swal({
+						title: "you clicked you!!"
+						})
+					}
+				}
+				
+		
+		</script>
 	</head>
 		<body>
 			<h1>欸!吃什麼啦!</h1>
-			<script>
-		swal({   title: "Error!",   text: "Here's my error message!",   type: "error",   confirmButtonText: "Cool" });
-		</script>
+			<input type="button" class="res" id="r1" style = "background-image:url(imgs/r1.png);background-size:contain;">
+			<input type="button" class="res" id="r2" style = "background-image:url(imgs/r1.png);background-size:contain;">	
 		</body>
-		
 </html>
