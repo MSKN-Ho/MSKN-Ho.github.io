@@ -10,33 +10,23 @@
 		<title>欸!吃什麼啦!</title>
 		<script>
 		$(document).ready(function(){
-			$('#r1').click(function(){
-			showres(1);
-			});
-			$('#r2').click(function(){
-			showres(2);
-			});
-		});
-		function showres(input){
-			var buildingname = ["夢泉商場(第一餐廳)" ,"湧泉商場(第二餐廳)"];	
-					swal({
-						title: "<h2>"+buildingname[input-1]+"</h2>",						
-						allowOutsideClick: true,
-						confirmButtonText: "離開",
-						text:"<p style='overflow:auto'><iframe align='center' src='"+buildingname[input-1]+".html'width='960px' height='600px'frameborder='0' ></iframe></p>",
-						html:true
-						})
-					
-		}
-				
+		 $("#r1").click(function(){
+			 
+			 document.location.href="夢泉商場(第一餐廳).html";
+		 })
+		 $("#r2").click(function(){
+			 document.location.href="勇泉商場(第二餐廳).html";
+		 })		 
+		})
 		
 		</script>
 	</head>
 		<body>
+			<a href="00357111+00357124.pptx"><img src="imgs/ppt.png" style="width:10%;position:fixed; top:0;right:0;"></a>
 			<h1  align="center">欸!吃什麼啦!</h1>
 			<div align="center">
-			<input type="button" class="res" id="r1" style = "background-image:url(imgs/r1.png);background-size:contain;">
-			<input type="button" class="res" id="r2" style = "background-image:url(imgs/r1.png);background-size:contain;">	
+			<input type="button" class="res" id="r1" style = "background-image:url(imgs/r1.png);background-size:contain;" >
+			<input type="button" class="res" id="r2" style = "background-image:url(imgs/r2.png);background-size:contain;" >	
 			</div>
 		</body>
 </html>

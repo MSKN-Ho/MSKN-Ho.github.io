@@ -6,13 +6,101 @@
 		<script src = "http://code.jquery.com/jquery-1.7.1.min.js"></script>
 		<script src = "dist/sweetalert.min.js"></script>
 		<link rel = "stylesheet" type = "text/css" href = "onestyle.css">
-		<link rel = "stylesheet" type = "text/css" href = "dist/sweetalert.css">
+		<link rel = "stylesheet" type = "text/css" href = "dist/sweetalert2.css">
 		<title>夢泉商場(第一餐廳)</title>
-		
+		<script>
+			var boothname = ["自助餐","比司多","微笑PASTA","四海遊龍","九米坊","同樂豆花","山多利","鼎香園","三樓餐廳"];
+			$(document).ready(function(){
+				var people = document.getElementById("people");
+				people.play();
+				to1f();
+				$(".lottery").click(function(){
+					var pick = Math.floor(Math.random()*boothname.length);
+					var ang = document.getElementById("ang");
+					ang.play();
+					swal({
+						title:boothname[pick],
+						text:'<p style="max-height:600px;max-width;600px;overflow:auto"><img src="imgs/r1/'+boothname[pick]+'.jpg"></p>',
+						animation:"slide-from-top",
+						html:true,
+						allowOutsideClick:true
+					})
+				})
+			})
+			
+			function goout(){
+					document.location.href="index.html";
+				}
+			function setfloor()
+			{
+				swal({
+						title:"Whitch floor?",
+						text:"go to 1st or 3rd floor?",
+						imageUrl:"imgs/stairs.jpg",
+						imageSize :"90x90", 
+						showCancelButton:true,
+						cancelButtonText:"1st",
+						confirmButtonText:"3rd",
+					 },
+					 function(isConfirm){
+					 if(isConfirm){
+						setto(3);
+					 }
+					 else{
+						setto(1);
+					 }
+				})
+			}
+			function setto(input)
+				{
+					step();
+					setTimeout(eval("to"+input+"f"),3000) ;	
+				}
+			function to1f()
+			{
+				var map = document.getElementById("map");
+				map.innerHTML = '<img  src="imgs/夢泉商場(第一餐廳).png"width="1920px"  style="z-index:3;"><img id="周董" class ="booth" src="imgs/blank.png"  style="top:505px;left: 10px;width:200px; height:390px;"><img id="比司" class ="booth" src="imgs/blank.png"  style="top: 10px;left: 10px;width:260px; height:250px;" onclick="showbooth(0)"><img id="比司" class ="booth" src="imgs/blank.png"  style="top: 10px;left: 270px;width:340px; height:250px;" onclick="showbooth(1)"><img id="微笑" class ="booth" src="imgs/blank.png"  style="top: 10px;left: 610px;width:310px; height:250px;" onclick="showbooth(2)"><img id="四海" class ="booth" src="imgs/blank.png"  style="top: 10px;left: 920px;width:300px; height:250px;" onclick="showbooth(3)"><img id="九米" class ="booth" src="imgs/blank.png"  style="top: 10px;left: 1220px;width:340px; height:250px;" onclick="showbooth(4)"><img id="同樂" class ="booth" src="imgs/blank.png"  style="top: 950px;left: 1270px;width:340px; height:125px;" onclick="showbooth(5)"><img id="2f" class ="booth" src="imgs/blank2.png"  style="top: 1268px;left: 10px;width:100px; height:100px;" onclick="setto(2)"><img id="2f2" class ="booth" src="imgs/blank2.png"  style="top: 1265px;left: 1620px;width:290px; height:102px;" onclick="setto(2)"><img id="out" class ="booth" src="imgs/blank3.png"  style="top: 1100px;left: 300px;width:250px; height:250px;" onclick="goout()">';
+			}
+			function to2f()
+			{
+				var map = document.getElementById("map");
+				map.innerHTML = '<img  src="imgs/夢泉商場(第一餐廳)2f.png"width="1920px"  style="z-index:3;"><img id="山多" class ="booth" src="imgs/blank.png"  style="top:200px;left: 1640px;width:280px; height:580px;" onclick="showbooth(6)"><img id="鼎香" class ="booth" src="imgs/blank.png"  style="top: 10px;left: 1050px;width:580px; height:270px;" onclick="showbooth(7)"><img id="1f" class ="booth" src="imgs/blank2.png"  style="top: 1268px;left: 10px;width:100px; height:100px;" onclick="setfloor()"><img id="1f2" class ="booth" src="imgs/blank2.png"  style="top: 1265px;left: 1620px;width:290px; height:102px;" onclick="setto(1)">';
+			}
+			function to3f()
+			{
+				var map = document.getElementById("map");
+				map.innerHTML = '<img  src="imgs/夢泉商場(第一餐廳)3f.png"width="1920px"  style="z-index:3;"><img id="11" class ="booth" src="imgs/blank.png"  style="top:870px;left: 1600px;width:330px; height:500px;" onclick="showbooth(8)"><img id="2f" class ="booth" src="imgs/blank2.png"  style="top: 1268px;left: 10px;width:100px; height:100px;" onclick="setto(2)">';
+			}
+			function step()
+			{
+				var getsound = document.getElementById("go");
+				getsound.play();
+			}
+			
+			function showbooth(nu)
+			{
+				swal({
+						title:boothname[nu],
+						text:'<p style="max-height:600px;max-width;600px;overflow:auto"><img src="imgs/r1/'+boothname[nu]+'.jpg"></p>',
+						html:true,
+						allowOutsideClick:true
+					})
+			}
+		</script>
 	</head>
-		<body style="background-color:#4DECEC">
-		<div align="center">
-			<img src="imgs/r1-f1.png" width="100%" >
-		</div>
+		<body style="background-color:#4DEEEE">
+		<img src="imgs/lottery.jpg" class="lottery">
+		<p id="map">
+		</p>	
+		<p>
+		<h1>夢泉商場(第一餐廳)</h1>
+		</p>
+		<audio id="people" preload="auto">
+			<source src="sounds/people.mp3" type="audio/mpeg">
+		
+		<audio id="go" preload="auto">
+			<source src="sounds/下樓梯.mp3" type="audio/mpeg">
+		<audio id="ang" preload="auto">
+			<source src="sounds/angels.mp3" type="audio/mpeg">
 		</body>
 </html>

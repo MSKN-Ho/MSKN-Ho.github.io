@@ -1,0 +1,78 @@
+<!CODETYPE HTML>
+<?xml version ="1.0" encoding = "utf-8"?>
+<html lang="zh-tw">
+	<head>
+		<meta charset = "utf-8">
+		<script src = "http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src = "dist/sweetalert.min.js"></script>
+		<link rel = "stylesheet" type = "text/css" href = "onestyle.css">
+		<link rel = "stylesheet" type = "text/css" href = "dist/sweetalert2.css">
+		<title>勇泉商場(第二餐廳)</title>
+		<script>
+			var boothname= ["同樂豆花","風鈴美食","嘴叼麵","A華加湯滷味","丼滋丼滋","韓湘廚","風鈴自助餐"];
+			$(document).ready(function(){
+				var go = document.getElementById("go");
+				go.addEventListener("ended", upstair, false);
+				var people = document.getElementById("people");
+				people.play();
+				$("#out").click(function(){
+					step();
+				})
+				$(".lottery").click(function(){
+					var pick = Math.floor(Math.random()*boothname.length);
+					var ang = document.getElementById("ang");
+					ang.play();
+					swal({
+						title:boothname[pick],
+						text:'<p style="max-height:600px;max-width;600px;overflow:auto"><img src="imgs/r2/'+boothname[pick]+'.jpg"></p>',
+						animation:"slide-from-top",
+						html:true,
+						allowOutsideClick:true
+					})
+				})
+				
+			})
+			function upstair()
+			{
+				document.location.href="index.html";
+			}
+			function step()
+			{
+				var getsound = document.getElementById("go");
+				getsound.play();
+			}
+			function showbooth(nu)
+			{
+				swal({
+						title:boothname[nu],
+						text:'<p style="max-height:600px;max-width;600px;overflow:auto"><img src="imgs/r2/'+boothname[nu]+'.jpg"></p>',
+						html:true,
+						allowOutsideClick:true
+					})
+			}
+		</script>
+	</head>
+		<body style="background-color:#4DEEEE">
+		<img src="imgs/lottery.jpg" class="lottery">
+		<p>
+		<img  src='imgs/勇泉商場(第二餐廳).png'width='1920px'  style='z-index:3;'>
+				<img id="同樂" class ="booth" src="imgs/blank.png"  style="top: 200px;left: 1750px;width:170px; height:545px;"onclick="showbooth(0)">
+				<img id="風鈴" class ="booth" src="imgs/blank.png"  style="top: 10px;left: 20px;width:270px; height:190px;"onclick="showbooth(1)">
+				<img id="嘴刁" class ="booth" src="imgs/blank.png"  style="top: 10px;left: 290px;width:240px; height:190px;"onclick="showbooth(2)">
+				<img id="滷味" class ="booth" src="imgs/blank.png"  style="top: 10px;left: 530px;width:270px; height:190px;"onclick="showbooth(3)">
+				<img id="丼茲" class ="booth" src="imgs/blank.png"  style="top: 10px;left: 800px;width:275px; height:190px;"onclick="showbooth(4)">
+				<img id="韓湘" class ="booth" src="imgs/blank.png"  style="top: 10px;left: 1075px;width:250px; height:190px;"onclick="showbooth(5)">
+				<img id="自助" class ="booth" src="imgs/blank.png"  style="top: 1050px;left: 8px;width:450px; height:315px;"onclick="showbooth(6)">
+				<img id="out" class ="booth" src="imgs/blank3.png"  style="top: 1100px;left: 850px;width:560px; height:265px;" >
+		</p>	
+		<p>
+		<h1>勇泉商場(第二餐廳)</h1>
+		</p>
+		<audio id="people" preload="auto">
+			<source src="sounds/people.mp3" type="audio/mpeg">
+		<audio id="go" preload="auto">
+			<source src="sounds/下樓梯.mp3" type="audio/mpeg">
+		<audio id="ang" preload="auto">
+			<source src="sounds/angels.mp3" type="audio/mpeg">
+		</body>
+</html>

@@ -22,13 +22,37 @@
 			margin: 26px 5px 0 5px;
 			cursor: pointer; 
 		}
+		.booth
+		{
+			z-index:2;
+			float:left;
+			opacity:0;
+			position: absolute;
+		}
+		.lottery
+		{
+			z-index:100;
+			position:fixed;
+			right:0;
+			bottom:0;
+			width:10%;
+			opacity:0;
+		}
+		.lottery:hover
+		{
+			opacity:1;
+		}
+		.booth:hover
+		{
+			opacity:0.3;
+		}
 		.res 
 		{
 			background-color: #FFE4CA;
 			border: none;
 			box-shadow: none;
-			width:200px;
-			height:200px;
+			width:640px;
+			height:360px;
 			border-radius: 3px;
 			padding: 15px 35px;
 			margin: 50px 50px 50px 50px;
